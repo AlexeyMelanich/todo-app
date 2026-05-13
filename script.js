@@ -1,6 +1,21 @@
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
+const themeToggle = document.getElementById("theme-toggle");
+
+function applyTheme(dark) {
+  document.body.classList.toggle("dark", dark);
+  themeToggle.textContent = dark ? "☀️" : "🌙";
+}
+
+const savedTheme = localStorage.getItem("theme");
+applyTheme(savedTheme === "dark");
+
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark");
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 
 function createTodoItem(text) {
   const listItem = document.createElement("li");
