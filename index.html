@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Todo App</title>
+  <title>Todo App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="app">
     <div class="app-header">
-      <h1>Todo App</h1>
+      <div class="app-header-text">
+        <h1>My Tasks</h1>
+        <p class="app-subtitle" id="task-count">No tasks yet</p>
+      </div>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </div>
 
@@ -17,14 +23,21 @@
       <input
         id="todo-input"
         type="text"
-        placeholder="Add a new todo"
+        placeholder="What needs to be done?"
         aria-label="Todo input"
         required
       />
-      <button type="submit">Add</button>
+      <button type="submit" aria-label="Add todo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add
+      </button>
     </form>
 
     <ul id="todo-list" class="todo-list" aria-label="Todo list"></ul>
+
+    <p class="empty-state" id="empty-state">
+      ✨ All clear! Add a task above to get started.
+    </p>
   </main>
 
   <script src="script.js"></script>
